@@ -188,6 +188,8 @@
     (user-error "Go LSP server is not on PATH\n"))
 
   :config
+  (use-package lsp-ivy
+    :bind ("C-c o" . lsp-ivy-workspace-symbol))
   ;; (add-hook 'before-save-hook 'lsp-format-buffer)
   ;; (add-hook 'before-save-hook 'lsp-organize-imports)
   )
