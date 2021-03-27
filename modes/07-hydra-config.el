@@ -20,6 +20,7 @@
     "Parent menu for everything"
     ("d" (progn (hydra/daily-common/body) (hydra-push '(hydra/base-menu/body)))  "Daily")
     ("g" (progn (hydra/golang-tools/body) (hydra-push '(hydra/base-menu/body))) "Golang")
+    ("p" (progn (hydra/programming-stuff/body) (hydra-push '(hydra/base-menu/body))) "Programming")
     ("e" (progn (hydra/evaling/body) (hydra-push '(hydra/base-menu/body))) "Evaling")
     ("m" (progn (hydra/music/body) (hydra-push '(hydra/base-menu/body))) "Music")
     ("o" (progn (hydra/org-stuff/body) (hydra-push '(hydra/base-menu/body))) "Org")
@@ -27,6 +28,11 @@
     ("t" (progn (hydra/text-stuff/body) (hydra-push '(hydra/base-menu/body))) "Text")
     ("c" (progn (hydra/counsel-stuff/body) (hydra-push '(hydra/base-menu/body))) "Counsel"))
 
+  (defhydra hydra/programming-stuff (:color blue)
+    "Generic programming stuff"
+    ("i" lsp-ivy-workspace-symbol "Ivy Workspace Symbol")
+    ("q" hydra-pop "Quit"))
+  
   (defhydra hydra/golang-tools (:color blue)
     "Tools and stuff for Golang"
     ("t" (progn (hydra/golang-tests/body) (hydra-push '(hydra/base-menu/body))) "Testing")
@@ -36,7 +42,8 @@
     ("s" godef-describe "GoDef Describe")
     ("p" go-play-buffer "GoPlay The Buffer")
     ("r" go-play-region "GoPlay The Region")
-    ("c" go-coverage "Show Coverage"))
+    ("c" go-coverage "Show Coverage")
+    ("q" hydra-pop "Quit"))
   
   (defhydra hydra/golang-tests (:color blue)
     "Running Go tests with ease!"
