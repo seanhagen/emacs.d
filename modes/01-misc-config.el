@@ -59,7 +59,14 @@ of (command . word) to be used by `flyspell-do-correct'."
          ;; By default, C-h C is bound to describe `describe-coding-system'. I
          ;; don't find this very useful, but it's frequently useful to only
          ;; look at interactive functions.
-         ("C-h C" . helpful-command)))
+         ("C-h C" . helpful-command))
+  :config
+  (advice-add 'describe-function :override #'helpful-function)
+  (advice-add 'describe-variable :override #'helpful-variable)
+  (advice-add 'describe-command  :override #'helpful-callable)
+  (advice-add 'describe-key      :override #'helpful-key)
+  (advice-add 'describe-symbol   :override #'helpful-symbol))
+
 
 (use-package smartparens
   :hook (prog-mode . smartparens-mode)
