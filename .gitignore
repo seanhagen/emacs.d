@@ -1,0 +1,12 @@
+/.cache/
+/org-clock-save.el
+/projectile-bookmarks.eld
+/projectile.cache
+/recentf
+/straight/
+/url/
+/var/
+/bookmarks
+/.mc-lists.el
+/.lsp-session-v1
+/.dap-breakpoints
