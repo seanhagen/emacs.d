@@ -282,7 +282,7 @@ prompting."
                            ;; ------------------------------------------------------------;;;
                            
                            ;; personal - journaling
-                           ("j" "Personal - Journaling" (function org-journal-find-location)
+                           ("j" "Personal - Journaling" entry (function org-journal-find-location)
                             "* %(format-time-string org-journal-time-format) %^{Title} :@personal:%^g\n%i\n%?"
                             :prepend t)
                            
