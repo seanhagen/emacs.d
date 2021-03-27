@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: quickParse
+# key: qp
+# --
+func parse$1(in []byte) (isEvent_Data, error){
+	esv := &Event_$1{}
+	err := json.Unmarshal(in, esv)
+	if err != nil || esv.$1 == nil {
+		sv := &$1{}
+		err = json.Unmarshal(in, sv)
+		if err != nil {
+			return nil, err
+		}
+		esv.$1 = sv
+	}
+	return esv, nil
+}
+
+$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sh-unity-tta
+# key: sh-unity-tta
+# --
+[Tooltip("$1")]$0

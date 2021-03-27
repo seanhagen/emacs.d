@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sh-unity-hiia
+# key: sh-unity-hiia
+# --
+[HideInInspector]$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sh-unity-rga
+# key: sh-unity-rga
+# --
+[Range($1, $2)]$0

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: sh-header
+# key: sh-header
+# --
+# -*- mode: snippet -*-
+# name: ${1:Snippet Name}
+# key: ${2:Snippet Key}
+# --
+$0

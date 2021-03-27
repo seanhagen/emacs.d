@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: sh-header
+# key: sh-header
+# --
+/**
+ * File: `(sh-get-file-name)` 
+ * Date: `(sh-get-timestamp-ver1)` 
+ * Revision: v0.0.1
+ * Creator: Sean Hagen <sean.hagen@gmail.com> 
+ * Notice: See LICENSE.txt for modification and distribution information
+ * 
+ * Copyright © `(sh-get-year-only)` Sean Hagen 
+ */
+$0

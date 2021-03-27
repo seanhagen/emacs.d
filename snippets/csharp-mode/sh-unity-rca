@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sh-unity-rca
+# key: sh-unity-rca
+# --
+[RequireComponent(typeof($1))]$0

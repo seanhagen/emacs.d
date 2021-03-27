@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sh-unity-sfa
+# key: sh-unity-sfa
+# --
+[SerializeField]$0

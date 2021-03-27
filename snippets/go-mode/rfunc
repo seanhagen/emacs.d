@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: rfunc
+# key: rfunc
+# --
+return func (${2:args}) $3 {
+$0
+}

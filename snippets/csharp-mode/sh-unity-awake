@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: sh-unity-awake
+# key: sh-unity-awake
+# --
+private void Awake()
+{
+    $0
+}

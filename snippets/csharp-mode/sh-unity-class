@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: sh-unity-class
+# key: sh-unity-class
+# --
+public class `(sh-get-file-name-without-extension)` : MonoBehaviour
+{
+    $0
+}

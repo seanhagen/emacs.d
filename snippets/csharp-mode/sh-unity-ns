@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: sh-unity-ns
+# key: sh-unity-ns
+# --
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;$0

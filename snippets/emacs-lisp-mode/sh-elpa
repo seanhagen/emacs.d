@@ -1,0 +1,41 @@
+# -*- mode: snippet -*-
+# name: sh-elpa
+# key: sh-elpa
+# --
+;;; `(sh-get-file-name)` --- $1  -*- lexical-binding: t; -*-
+
+;; Copyright (C) `(sh-get-year-only)`  Sean Hagen
+
+;; Author: Sean Hagen <sean.hagen@gmail.com>
+;; Maintainer: Sean Hagen <sean.hagen@gmail.com>
+;; URL: https://github.com/seanhagen/`(sh-get-file-name-without-extension)`
+;; Version: 0.0.1
+;; Package-Requires: ((emacs "24.3"))
+;; Keywords: $2
+
+;; This file is not part of GNU Emacs.
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+;;
+;; $3
+;;
+
+;;; Code:
+
+$0
+
+(provide '`(sh-get-file-name-without-extension)`)
+;;; `(sh-get-file-name)` ends here

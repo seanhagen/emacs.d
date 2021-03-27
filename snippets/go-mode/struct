@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# contributer: Yusuke Tsutsumi <tsutsumi.yusuke@gmail.com>
+# name: struct
+# key: struct
+# description: add a struct
+# --
+// $1 ${2:...}
+type ${1:StructName} struct {
+  ${3:VariableName}	${4:Type}
+	$0
+}

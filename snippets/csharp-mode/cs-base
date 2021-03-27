@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: cs-base
+# key: cs-base
+# --
+using System;
+
+namespace ${$6:Namespace} {
+  ${5:public} class ${1:Name} {
+    #region Ctor & Destructor
+    /// <summary>
+    /// ${3:Standard Constructor}
+    /// </summary>
+    public $1($2) {
+    }
+
+    /// <summary>
+    /// ${4:Default Destructor}
+    /// </summary>
+    public ~$1() {
+    }
+    #endregion
+  }
+}

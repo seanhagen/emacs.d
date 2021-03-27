@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: gofunc
+# key: gofunc
+# --
+go func ($1) $2 {
+   $0
+}($3)

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: sh-unity-update
+# key: sh-unity-update
+# --
+private void Update()
+{
+    $0
+}
