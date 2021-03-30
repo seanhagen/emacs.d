@@ -123,6 +123,7 @@
     :config
     (flutter-l10n-flycheck-setup)))
 
+(use-package csv-mode)
 
 (provide '11-language-config)
 ;;; 11-language-config.el ends here
