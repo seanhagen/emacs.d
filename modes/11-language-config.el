@@ -106,6 +106,23 @@
 ;;; CSS
 ;; https://www.reddit.com/r/emacs/comments/9bcgbt/good_css_autocompletion_setup/
 
+(use-package dart-mode
+  :config
+  (use-package lsp-dart
+    :custom
+    (lsp-dart-sdk-dir "/home/sean/bin/flutter/bin/cache/dart-sdk")
+    :hook (dart-mode . lsp))
+  (use-package flutter
+    :custom
+    (flutter-sdk-path "/home/sean/bin/flutter")
+    :after dart-mode
+    :bind (:map dart-mode-map
+                ("C-M-x" . #'flutter-run-or-hot-reload)))
+  (use-package flutter-l10n-flycheck
+    :after flutter
+    :config
+    (flutter-l10n-flycheck-setup)))
+
 
 (provide '11-language-config)
 ;;; 11-language-config.el ends here
