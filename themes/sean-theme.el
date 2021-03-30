@@ -17,7 +17,7 @@
  '(region ((t (:background "#818181" ))))
  '(secondary-selection ((t (:background "#98765f" ))))
  '(font-lock-builtin-face ((t (:foreground "#fe8019" ))))
- '(font-lock-comment-face ((t (:foreground "#e00000" ))))
+ '(font-lock-comment-face ((t (:foreground "#ff8370" ))))
  '(font-lock-function-name-face ((t (:foreground "#b8bb26" ))))
  '(font-lock-keyword-face ((t (:foreground "#00eef9" ))))
  '(font-lock-string-face ((t (:foreground "cyan" ))))

@@ -16,7 +16,7 @@
  '(cider-repl-display-in-current-window nil)
  '(csv-separators '(";"))
  '(custom-safe-themes
-   '("3397fe98e8985e82b715cad66e2b1dedc6a576ca85c18f5c9ebab4a2bf951c8b" "ffa91a5eb3ebfbf6b4b0f0f1cb33840131e75c610067d00806931484805f02f6" "a356f2d02f4036df198b57a5f686a8698494216abbc19f78be42fc8ab22cefdc" "78517754d015db0e3797cb25e3f0af0059254d00c100873c8eabf506ac809c35" "e231bdb79e731ad39be11e2dfad78eca2507c7a751d46863c187c756b59973a4" default))
+   '("a9fb53531f327c50855f2f08bb3ae0ca57cd44b1e786c8104287eb4a46910b79" "3397fe98e8985e82b715cad66e2b1dedc6a576ca85c18f5c9ebab4a2bf951c8b" "ffa91a5eb3ebfbf6b4b0f0f1cb33840131e75c610067d00806931484805f02f6" "a356f2d02f4036df198b57a5f686a8698494216abbc19f78be42fc8ab22cefdc" "78517754d015db0e3797cb25e3f0af0059254d00c100873c8eabf506ac809c35" "e231bdb79e731ad39be11e2dfad78eca2507c7a751d46863c187c756b59973a4" default))
  '(dired-details-hidden-string "[...] ")
  '(dired-details-hide-link-targets nil)
  '(display-time-day-and-date t)
@@ -70,8 +70,6 @@
  '(notmuch-hello-thousands-separator ",")
  '(notmuch-show-text/html-blocked-images nil)
  '(omnisharp-server-executable-path "/home/sean/.omnisharp/run")
- '(org-agenda-files
-   '("~/Dropbox/Org/tasks.org" "/home/sean/Dropbox/Org/code.org" "/home/sean/Dropbox/Org/hacking.org" "/home/sean/Dropbox/Org/journal.org" "/home/sean/Dropbox/Org/TODO.org" "/home/sean/Dropbox/Org/work.org" "/home/sean/Dropbox/Org/work-taskdiary.org" "~/Dropbox/Org/TODO.org" "~/Code/HTML/seanhagen.ca/TODO.org" "~/Code/Go/protobufs/TODO.org" "~/Code/Go/localization_service/TODO.org" "~/Code/Go/pdf_generator/TODO.org" "~/Code/Go/playgrounds_service/TODO.org" "/shared/Code/Unity/2D/Endless Stream/TODO.org" "/shared/Code/Unity/2D/Glitch Garden/TODO.org" "~/Code/Go/sendbot/TODO.org") nil nil "Customized with use-package org-projectile")
  '(org-journal-dir "~/Dropbox/Org/journal")
  '(popwin-mode t)
  '(popwin:special-display-config
@@ -100,6 +98,7 @@
  '(projectile-globally-ignored-directories
    '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".rbenv" "public/system" "~"))
  '(projectile-require-project-root t)
+ '(request-backend 'url-retrieve)
  '(ring-bell-function 'ignore)
  '(safe-local-variable-values
    '((lsp-csharp-solution-file . "./Glitch Garden.sln")

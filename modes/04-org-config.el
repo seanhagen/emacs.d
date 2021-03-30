@@ -46,7 +46,8 @@ prompting."
      "/home/sean/Dropbox/Org/tasks.org"
      "/home/sean/Dropbox/Org/TODO.org"
      "/home/sean/Dropbox/Org/work.org"
-     "/home/sean/Dropbox/Org/work-taskdiary.org"))
+     "/home/sean/Dropbox/Org/work-taskdiary.org"
+     "/home/sean/Dropbox/Org/backend-team.org"))
   (org-agenda-span 5)
   (org-agenda-log-mode 1)
   (org-agenda-start-on-weekday 1)
@@ -85,23 +86,53 @@ prompting."
   (org-default-notes-file "~/.notes")
   (org-clock-persist 'history)
   (org-fontify-done-headline t)
-  (org-hide-emphasis-markers nil)
+  (org-hide-emphasis-markers t)
   (org-hierarchical-checkbox-statistics nil)
 
   (org-todo-keywords
-   '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)")
+   '((sequence "BACKLOG(b)" "TODO(t)" "STARTED(s)" "|" "DONE(d)")
      (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "EXPIRED(e@/!)" "PHONE" "MEETING")))
 
+  (org-tag-faces '(
+                   ;; my group tags
+                   ("@work" :foreground "#00ffee")
+                   ("@personal" :foreground "#00ff33")
+
+                   ;; other tags
+                   ("task" :foreground "blue")
+                   ("email" :foreground "green")
+                   ("domain" :foreground "purple")
+                   
+                   ;; trello tags
+                   ("orange" :foreground "orange")
+                   ("green" :foreground "#2f2")
+                   ("red" :foreground "red")
+                   ("yellow" :foreground "yellow")
+                   ("purple" :foreground "purple")
+                   ("pink" :foreground "hot pink")
+                   ("lime" :foreground "#00ff88")
+                   ))
+  
   (org-todo-keyword-faces
-   '(("TODO" :foreground "#ffa200" :weight bold)
-     ("STARTED" :foreground "#00ffee" :weight bold)
-     ("DONE" :foreground "#00ff33" :weight bold :strike-through t)
-     ("WAITING" :foreground "#b37100" :weight bold :underline t)
-     ("HOLD" :foreground "magenta" :weight bold)
+   '(("BACKLOG" :foreground "#ff8888")
+     ("TODO" :foreground "#ffa200")
+     ("BUG" :foreground "red" :weight bold)
+     ("STARTED" :foreground "#00ffee")
+     ("DONE" :foreground "#00ff33" :strike-through t)
+     ("WAITING" :foreground "#b37100" :underline t)
+     ("HOLD" :foreground "magenta" )
      ("EXPIRED" :foreground "#b36500" :strike-through t)
-     ("CANCELLED" :foreground "#00b825" :weight bold :strike-through t)
-     ("MEETING" :foreground "forest green" :weight bold)
-     ("PHONE" :foreground "forest green" :weight bold)))
+     ("CANCELLED" :foreground "#00b825" :strike-through t)
+     ("MEETING" :foreground "forest green")
+     ("PHONE" :foreground "forest green")
+
+     ;; ;; org-trello
+     ;; ("Backlog" :foreground "forest green")
+     ;; ("ToDo" :foreground "#ffa200")
+     ;; ("In-Progress" :foreground "#00ffee")
+     ;; ("Bugs" :foreground "red")
+     ;; ("Done" :foreground "#00ff33")
+     ))
   
   (org-todo-state-tags-triggers
    '(("CANCELLED" ("CANCELLED" . t))
@@ -339,6 +370,47 @@ prompting."
    '((ditaa . t)
      (dot . t)
      (plantuml . t)))
+
+  ;; (defun sh/org-clock-in-if-starting ()
+  ;;   "Clock in when the task is marked STARTED."
+  ;;   (when (and (string= state "STARTED")
+  ;;              (not (string= last-state state)))
+  ;;     (org-clock-in)))
+
+  ;; (add-hook 'org-after-todo-state-change-hook
+  ;;           'sh/org-clock-in-if-starting)
+
+  ;; (defadvice org-clock-in (after sacha activate)
+  ;;   "Set this task's status to 'STARTED'."
+  ;;   (org-todo "STARTED"))
+
+  ;; (defun sh/org-clock-out-if-waiting ()
+  ;;   "Clock out when the task is marked WAITING."
+  ;;   (when (and (string= state "WAITING")
+  ;;              (not (string= last-state state)))
+  ;;     (org-clock-out)))
+
+  ;; (add-hook 'org-after-todo-state-change-hook
+  ;;           'sh/org-clock-out-if-waiting)
+
+  ;; (add-hook 'org-remember-before-finalize-hook 'my-start-clock-if-needed)
+  ;; (defun my-start-clock-if-needed ()
+  ;;   (save-excursion
+  ;;     (goto-char (point-min))
+  ;;     (when (re-search-forward "* STARTED" nil t)
+  ;;       (change-todo-state-on-old-clock)
+  ;;       (org-clock-in))))
+
+  ;; (defun change-todo-state-on-old-clock ()
+  ;;   ;; old-clock needs state changed if STARTED
+  ;;   (save-excursion
+  ;;     (progn
+  ;;       (when (marker-buffer org-clock-marker)
+  ;;         (set-buffer (marker-buffer org-clock-marker))
+  ;;         (goto-char (point-min))
+  ;;         (when  (re-search-forward "^\*+ STARTED" nil t)
+  ;;           (org-todo "WAITING"))))))
+
   
 
   (require 'org-notmuch)
@@ -417,9 +489,9 @@ heading; capture will insert the heading."
     :config
     (setq org-super-agenda-groups
           '(
-            (:name "======  DONE =======" :log closed :order 2)
-            (:name "======= LOG ========" :log t :order 1)
-            (:name "====== AGENDA ======" :time-grid t :order 3)
+            (:name "====== BACKLOG =====" :todo "BACKLOG" :order 100)
+            (:name "====== STARTED =====" :todo "STARTED" :order 2)
+            
             (:order-multi
              (8
               (:name "===== Due Soon =====" :deadline future)
@@ -433,16 +505,24 @@ heading; capture will insert the heading."
             (:name "==== In Progress ===" :scheduled past :order 7)
             (:name "Everything Else For Today" :date today :order 9)
             (:name "Everything Else?" :date t :order 10)
+            (:name "====== AGENDA ======" :time-grid t :order 80)
             (:name "TODO List" :auto-parent)))
     (progn
       (org-super-agenda-mode +1)))
 
-
+  (use-package org-trello
+    :custom
+    (org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
+    (org-trello-files '("~/Dropbox/Org/backend-team.org")))
+  
   (use-package org-bullets
     :requires (org-mode)
     :after org
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    :custom
+    (org-bullets-bullet-list '("◉" "○" "✸" "•"))
+    :init
+    (:hook org-mode 'org-bullets-mode))
+
 
   (defun myorg-update-parent-cookie ()
     (when (equal major-mode 'org-mode)

@@ -3,19 +3,12 @@
 ;;;   This is where all of the language-specific stuff lives
 ;;; Code:
 
-;;; CSS
-;; https://www.reddit.com/r/emacs/comments/9bcgbt/good_css_autocompletion_setup/
 
-(setenv "GOPATH" "/home/sean/Code/Go")
-
-(defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
 
 (use-package go-mode
   :mode "\\.go\\'"
   ;; :hook (before-save . gofmt-before-save)
-  :hook (before-save . lsp-format-buffer)
+  ;; :hook (before-save . lsp-format-buffer)
   :bind (:map go-mode-map
               ("C-c i" . go-goto-imports)
               ("C-c C-r" . go-remove-unused-imports)
@@ -23,6 +16,8 @@
               ("C-c d" . dlv)
               ("M-." . godef-jump)
               )
+  :init
+  (setenv "GOPATH" "/home/sean/Code/Go")
   :custom
   (gofmt-command "goimports")
   (lsp-go-use-placeholders t)
@@ -35,10 +30,15 @@
 
 
   :config
+  (defun lsp-go-install-save-hooks ()
+    (add-hook 'before-save-hook #'lsp-format-buffer t t)
+    (add-hook 'before-save-hook #'lsp-organize-imports t t))
+  (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
   (use-package gotest)
   (use-package go-add-tags
                :bind (:map go-mode-map ("C-c '" . go-add-tags))
                :commands go-add-tags)
+  
   ;; (use-package dap-go)
   ;; (use-package go-dlv)
   ;; (use-package go-stacktracer)
@@ -51,12 +51,12 @@
   ;;   :bind (:map go-mode-map
   ;;               ("C-c C-j" . go-direx-pop-to-buffer))))
 
-;; go-fill-struct
-;; go-gen-test
-;; go-gopath
-;; go-imports
-;; go-tag
-;; godoctor ( requires https://github.com/godoctor/godoctor )
+  ;; go-fill-struct
+  ;; go-gen-test
+  ;; go-gopath
+  ;; go-imports
+  ;; go-tag
+  ;; godoctor ( requires https://github.com/godoctor/godoctor )
 
   
   ;; (add-hook 'before-save-hook 'gofmt-before-save)
@@ -90,13 +90,21 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode)))
 
+
+
 (use-package sql-indent
-  :mode "\\.sql\\'")
+  :config
+  (add-to-list 'sql-mode-hook 'sqlind-minor-mode))
+
 (use-package bigquery-mode
+  :mode "\\.bsql"
   :straight (:host github :repo "christophstockhusen/bigquery-mode"))
 
 ;; (use-package docstr
 ;;    :straight (:host github :repo "jcs-elpa/docstr"))
+
+;;; CSS
+;; https://www.reddit.com/r/emacs/comments/9bcgbt/good_css_autocompletion_setup/
 
 
 (provide '11-language-config)
