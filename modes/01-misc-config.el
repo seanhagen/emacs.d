@@ -243,5 +243,11 @@ of (command . word) to be used by `flyspell-do-correct'."
       ("r" mc/mark-all-in-region-regexp "Mark by regex in region":exit t)
       ("q" nil "Quit"))))
 
+(use-package pass
+  :config
+  (setf epa-pinentry-mode 'loopback))
+
+(use-package password-store)
+
 (provide 'misc-config)
 ;;; 01-misc-config.el ends here

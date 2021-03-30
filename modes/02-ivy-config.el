@@ -20,7 +20,10 @@
 	 '((t   . ivy--regex-ignore-order)
      (t . ivy--regex-fuzzy)))
 
-  :init (ivy-mode))
+  :init (ivy-mode)
+
+  :config
+  (use-package ivy-pass))
 
 (use-package swiper
   :after ivy
