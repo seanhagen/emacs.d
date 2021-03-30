@@ -1,0 +1,107 @@
+* Things To Do With Emacs Config
+** TODO packages to look into [0/4]
+SCHEDULED: <2021-04-03 Sat>
+ - [ ] https://github.com/cyrus-and/zoom
+ - [ ] https://github.com/daichirata/emacs-rotate
+ - [ ] https://www.wisdomandwonder.com/emacs/12181/go-to-the-logical-begin-and-end-of-a-buffers-content
+ - [ ] https://www.manueluberti.eu//emacs/2019/03/16/switch-buffers/
+** TODO look into these packages [2/30]
+SCHEDULED: <2021-04-03 Sat>
+- [ ]  nlinum-relative      20160526.8
+- [ ]  nlinum-hl            20170607.1221
+- [ ]  nlinum               1.7
+- [ ]  netrunner            20160910.1632
+- [ ]  navorski             20141203.1024
+- [ ]  markdown-mode        20170608.745
+- [ ]  linum-relative       20160510.118
+- [ ]  inline-docs          20170522.2150
+- [ ]  httprepl             20141101.1034
+- [ ]  helm-swoop           20160619.953
+  - not going to use because switched over to ivy, but worth looking to see if
+    there's an ivy equivilant
+- [ ]  magit-popup       20170508.936
+- [ ]  inf-clojure       20170507.233
+- [ ]  hlinum            20170507.2227
+- [X]  helm-emms         20170508.541
+- [ ]  helm-bbdb         20170505.2338
+  - see if there's an ivy replacement
+- [ ]  counsel           20170506.1638
+- [ ]  writeroom-mode       20170502.1252
+- [ ]  visual-fill-column   20170502.1300
+- [ ]  slime                20170502.914
+- [ ]  pandoc-mode          20170503.606
+- [X]  ivy                  20170501.1903
+- [ ]  irony                20170503.1447
+- [ ]  irony-eldoc          20170502.1208
+- [ ]  company-irony        20170411.1645
+- [ ]  hl-indent            20170429.1404
+- [ ]  helm-org-rifle       20170429.2219
+  - see if there's an ivy replacement
+- [ ]  helm-make            20170430.1053
+  - see if there's an ivy replacement
+- [ ]  emms                 20170501.1102
+- [ ]  elfeed               20170429.1038
+- [ ]  cider                20170430.816
+** TODO configure these emacs packages
+SCHEDULED: <2021-03-04 Thu>
+- [ ] org-board      20200530.830
+- [ ] org-alert      20180524.133
+- [ ] all-the-icons-ibuffer
+- [ ] all-the-icons-gnus
+- [ ] writeroom-mode         20200519.37
+- [ ] mastodon               20190305.344
+- [ ] helm-ag                20200601.933
+  - see if there's an ivy replacment, hook up keybinding
+- [ ] all-the-icons-ibuffer  20200608.1736
+- [ ] all-the-icons-gnus     20180511.654
+- [ ] cheat-sh                  20200226.1021
+- [ ] emoji-github              20200323.233
+- [ ] emoji-fontset             20160726.1924
+- [ ] all-the-icons-dired       20200403.1018
+- [ ] company-emoji             20191226.1915
+- [ ] erc-twitch                20170427.606
+- [ ] erc-tweet                 20150920.1258
+- [ ] erc-image                 20180522.1424
+- [ ] helpful                   20200506.816
+- [ ] podcaster                 20161020.1535
+- [ ] ranger                    20200218.203
+- [ ] shackle                   20200529.1839
+- [ ] scratch                   20190314.614
+- [ ] sudoku                    20191015.1315
+- [ ] spaceline                 20191230.1221
+- [ ] telephone-line            20200516.2102
+- [ ] ssh-agency                20200329.1558
+- [ ] ssh-config-mode           20200503.2042
+- [ ] term-projectile           20190307.400
+- [ ] writeroom-mode         20170228.1521
+- [ ] unbound                   0.1
+- [ ] prodigy         20191212.1242
+- [ ] mastodon          20170505.1201
+- [ ] smartparens          20170430.844
+- [ ] web-mode               20170309.3
+- [ ] markdown-toc           20170224.2350
+- [ ] hide-comnt             20170223.739
+- [ ] gotest                 20170303.13
+- [ ] go-projectile          20170302.1705
+- [ ] go-playground          20170226.43
+- [ ] go-eldoc               20170305.627
+- [ ] git-commit             20170308.146
+- [ ] forecast               20170221.1327
+- [ ] fontawesome            20170305.556
+- [ ] font-lock+             20170222.1755
+- [ ] flycheck               20170309.145
+- [ ] emms                   20170301.1406
+- [ ] dockerfile-mode        20170221.1317
+- [ ] dired-details+         20170221.1629
+- [ ] company-go             20170303.909
+- [ ] clojure-mode           20170303.2310
+- [ ] alert                  20170223.1030
+- [ ] ace-flyspell           20170308.2109
+Added: [2017-03-09 Thu 15:04]
+** TODO sort out org-todo-state-tags-triggers           :@personal:code:org:
+SCHEDULED: <2021-04-03 Sat>
+see: http://doc.norang.ca/org-mode.html#ToDoStateTriggers
+File [[file:///home/sean/.emacs.d/modes/04-org-config.el::112][04-org-config.el]]
+** TODO more org mode customizing to look into
+SCHEDULED: <2021-04-03 Sat>
+- prettier bullets and keywords: https://dustinlacewell.github.io/emacs.d/#org21fe61b
