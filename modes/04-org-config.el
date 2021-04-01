@@ -63,6 +63,8 @@ prompting."
      (900 930 1000 1030 1100 1130 1200 1230 1300 1330 1400 1430 1500 1530 1600 1630 1700 1730 1800)
      ". . . . . ."
      "----------------"))
+  (org-clock-idle-time 15)
+  (org-time-stamp-rounding-minutes (quote (0 5)))
   (org-agenda-tags-todo-honor-ignore-options t)
   (org-agenda-skip-scheduled-if-done t)
   (org-agenda-skip-deadline-if-done t)
@@ -111,6 +113,7 @@ prompting."
                    ("purple" :foreground "purple")
                    ("pink" :foreground "hot pink")
                    ("lime" :foreground "#00ff88")
+                   ("blue" :foreground "blue")
                    ))
   
   (org-todo-keyword-faces
@@ -118,6 +121,7 @@ prompting."
      ("TODO" :foreground "#ffa200")
      ("BUG" :foreground "red" :weight bold)
      ("STARTED" :foreground "#00ffee")
+     ("IN-PROGRESS" :foreground "#00ffee")
      ("DONE" :foreground "#00ff33" :strike-through t)
      ("WAITING" :foreground "#b37100" :underline t)
      ("HOLD" :foreground "magenta" )
@@ -149,6 +153,7 @@ prompting."
                    ("@work" . ?w)
                    ("@home" . ?h)
                    ("@errand" . ?e)
+                   ("@personal" . ?p)
                    (:endgroup)
                    ("dmv" . ?d)
                    ("cgn" . ?c)
@@ -283,7 +288,7 @@ prompting."
                            ;; work - asks -- stuff i'm asked to do (get data, etc)
                            ("A" "Work - Asks" entry
                             (file+olp+datetree "~/Dropbox/Org/work-taskdiary.org" "Tasks")
-                            "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:other:%^g\n:PROPERTIES:\nSCHEDULED: %(org-insert-time-stamp (org-read-date t t \"+1h\") t)\n:END:\n%?\nAdded: %U"
+                            "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:other:%^g\nSCHEDULED: %(org-insert-time-stamp (org-read-date t t \"+1h\") t)\n%?\nAdded: %U"
                             :prepend t :clock-in t :clock-resume t :immediate-finish t)
 
                            ;; work - tasks -- if it's not one of the specific things below, it's this
@@ -326,7 +331,7 @@ prompting."
                            ;; personal - generic todos/tasks ( calls to make, scheduled stuff, etc )
                            ("t" "Personal - TODO" entry
                             (file+headline "~/Dropbox/Org/tasks.org" "TODOs")
-                            "* TODO %^{Title} :@personal:task:%^g\n:PROPERTIES:\nSCHEDULED: %^{scheduled for}t\n:END:\n%?\nAdded: %U"
+                            "* TODO %^{Title} :@personal:task:%^g\nSCHEDULED: %^{scheduled for}T\n%?\nAdded: %U"
                             :prepend t)
                            
                            ;; personal - code todos
@@ -490,6 +495,7 @@ heading; capture will insert the heading."
     (setq org-super-agenda-groups
           '(
             (:name "====== BACKLOG =====" :todo "BACKLOG" :order 100)
+            (:name "====== AGENDA ======" :time-grid t :order 80)
             (:name "====== STARTED =====" :todo "STARTED" :order 2)
             
             (:order-multi
@@ -505,15 +511,15 @@ heading; capture will insert the heading."
             (:name "==== In Progress ===" :scheduled past :order 7)
             (:name "Everything Else For Today" :date today :order 9)
             (:name "Everything Else?" :date t :order 10)
-            (:name "====== AGENDA ======" :time-grid t :order 80)
             (:name "TODO List" :auto-parent)))
     (progn
       (org-super-agenda-mode +1)))
 
   (use-package org-trello
     :custom
+    (org-trello-log-level org-trello-log-trace)
     (org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
-    (org-trello-files '("~/Dropbox/Org/backend-team.org")))
+    (org-trello-files '("~/Dropbox/Org/backend-team.org" "~/Dropbox/Org/endless-stream.org")))
   
   (use-package org-bullets
     :requires (org-mode)
