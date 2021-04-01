@@ -43,9 +43,9 @@ of (command . word) to be used by `flyspell-do-correct'."
     (setq flyspell-correct-interface #'frog-menu-flyspell-correct)))
 
 (use-package helpful
-  :bind (("C-h f" . helpful-calable)
+  :bind (("C-h f" . helpful-callable)
          ("C-h v" . helpful-variable)
-         ("C-h k" . helpfuly-key)
+         ("C-h k" . helpful-key)
          ;; Lookup the current symbol at point. C-c C-d is a common keybinding
          ;; for this in lisp modes.
          ("C-c C-d" . helpful-at-point)
