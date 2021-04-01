@@ -113,6 +113,7 @@
   (company-show-numbers t)
   (company-idle-delay 0.1)
   (company-tooltip-limit 20)
+  (company-dabbrev-downcase nil)
   ;(company-backends (delete 'company-dabbrev company-backends))
   (company-minimum-prefix-length 2)
   (company-echo-delay 0)
