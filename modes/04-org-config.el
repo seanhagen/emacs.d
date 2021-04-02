@@ -279,7 +279,7 @@ prompting."
   ;; blame.
 
   (org-capture-templates '(
-                           ;; work - meeting note
+                           ;; work - meeting note / phone call, etc
                            ("M" "Work - Meeting Note" entry
                             (file+olp+datetree "~/Dropbox/Org/work-taskdiary.org" "Meetings")
                             "* %^{Meeting Title} :@work:meeting:%^g\nAdded: %T\n%?"
@@ -294,8 +294,8 @@ prompting."
                            ;; work - tasks -- if it's not one of the specific things below, it's this
                            ("T" "Work - Task" entry
                             (file+headline "~/Dropbox/Org/work.org" "Work TODOs")
-                            "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:task:%^g\n:PROPERTIES:\n:END:\n%?\nAdded: %U"
-                            :prepend t :clock-in t :clock-resume t :immediate-finish t)
+                            "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:task:%^g\nSCHEDULED: %^{scheduled for}T\n%?\nAdded: %U"
+                            :prepend t :clock-in t :clock-resume t)
                            
                            ;; work - code todo
                            ("C" "Work - Code TODO" entry
