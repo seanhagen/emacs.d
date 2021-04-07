@@ -16,7 +16,7 @@
          ("M-p" . org-do-promote))
   :init
   (defun org-get-target-headline (&optional targets prompt)
-  "Prompt for a location in an org file and jump to it.
+    "Prompt for a location in an org file and jump to it.
 
 This is for promping for refile targets when doing captures.
 Targets are selected from `org-refile-targets'. If TARGETS is
@@ -25,11 +25,11 @@ replace the default prompt message.
 
 If CAPTURE-LOC is is given, capture to that location instead of
 prompting."
-  (let ((org-refile-targets (or targets org-refile-targets))
-        (prompt (or prompt "Capture Location")))
-    (if org-capture-overriding-marker
-        (org-goto-marker-or-bmk org-capture-overriding-marker)
-      (org-refile t nil nil prompt))))
+    (let ((org-refile-targets (or targets org-refile-targets))
+          (prompt (or prompt "Capture Location")))
+      (if org-capture-overriding-marker
+          (org-goto-marker-or-bmk org-capture-overriding-marker)
+        (org-refile t nil nil prompt))))
 
   (defun sh/remove-empty-drawer-on-clock-out ()
     (interactive)
@@ -47,7 +47,8 @@ prompting."
      "/home/sean/Dropbox/Org/TODO.org"
      "/home/sean/Dropbox/Org/work.org"
      "/home/sean/Dropbox/Org/work-taskdiary.org"
-     "/home/sean/Dropbox/Org/backend-team.org"))
+     "/home/sean/Dropbox/Org/backend-team.org"
+     "/home/sean/Dropbox/Org/personal.org"))
   (org-agenda-span 5)
   (org-agenda-log-mode 1)
   (org-agenda-start-on-weekday 1)
@@ -182,7 +183,7 @@ prompting."
   
   
   (org-columns-default-format
-          "%80ITEM(Task) %10Effort(Effort){:} %10CLOCKSUM")
+   "%80ITEM(Task) %10Effort(Effort){:} %10CLOCKSUM")
   (org-global-properties
    '(("Effort_ALL" . "0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 6:00 0:00")
      ("STYLE_ALL" . "habit")))
@@ -278,94 +279,101 @@ prompting."
   ;; EXPIRED TODO to indicate that the owner is not necessarily to
   ;; blame.
 
-  (org-capture-templates '(
-                           ;; work - meeting note / phone call, etc
-                           ("M" "Work - Meeting Note" entry
-                            (file+olp+datetree "~/Dropbox/Org/work-taskdiary.org" "Meetings")
-                            "* %^{Meeting Title} :@work:meeting:%^g\nAdded: %T\n%?"
-                            :prepend t :clock-in t :clock-resume t)
-                           
-                           ;; work - asks -- stuff i'm asked to do (get data, etc)
-                           ("A" "Work - Asks" entry
-                            (file+olp+datetree "~/Dropbox/Org/work-taskdiary.org" "Tasks")
-                            "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:other:%^g\nSCHEDULED: %(org-insert-time-stamp (org-read-date t t \"+1h\") t)\n%?\nAdded: %U"
-                            :prepend t :clock-in t :clock-resume t :immediate-finish t)
+  (org-capture-templates
+   '(
+     ;; work - meeting note / phone call, etc
+     ("M" "Work - Meeting Note" entry
+      (file+olp+datetree "~/Dropbox/Org/work-taskdiary.org" "Meetings")
+      "* %^{Meeting Title} :@work:meeting:%^g\nAdded: %T\n%?"
+      :prepend t :clock-in t :clock-resume t)
 
-                           ;; work - tasks -- if it's not one of the specific things below, it's this
-                           ("T" "Work - Task" entry
-                            (file+headline "~/Dropbox/Org/work.org" "Work TODOs")
-                            "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:task:%^g\nSCHEDULED: %^{scheduled for}T\n%?\nAdded: %U"
-                            :prepend t :clock-in t :clock-resume t)
-                           
-                           ;; work - code todo
-                           ("C" "Work - Code TODO" entry
-                            (file+headline "~/Dropbox/Org/work.org" "Code TODOs")
-                            "* TODO %^{Title} :@work:code:%^g\n%?\nFile: [[file://%F::%(with-current-buffer (org-capture-get :original-buffer) (number-to-string (line-number-at-pos)))][%(buffer-name (org-capture-get :original-buffer))]]\nAdded: %U"
-                            :prepend t :clock-in t :clock-resume t :immediate-finish t)
-                                                      
-                           ;; work - email todo
-                           ("E" "Work - Email TODO" entry
-                            (file+headline "~/Dropbox/Org/work.org" "Email TODOs")
-                            "* TODO %^{Title} :@work:email:%^g\n%?\nEmail: %a\nAdded: %U"
-                            :prepend t :clock-in t :clock-resume t :immediate-finish t)
+     ("I" "Work - Asks (Immediate)" entry
+      (file+olp+datetree "~/Dropbox/Org/work-taskdiary.org" "Tasks")
+      "* TODO %^{Title} :@work:ask:%^g\nAdded: %U\n%?"
+      :prepend t :clock-in t :clock-resume t)
+     
+     ;; work - asks -- stuff i'm asked to do (get data, etc)
+     ("A" "Work - Asks" entry
+      (file+olp+datetree "~/Dropbox/Org/work-taskdiary.org" "Tasks")
+      "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:other:%^g\nSCHEDULED: %(org-insert-time-stamp (org-read-date t t \"+1h\") t)\n%?\nAdded: %U"
+      :prepend t :immediate-finish t)
 
-                           ;; work - research/learn "task"
-                           ("R" "Work - Research" entry
-                            (file+headline "~/Dropbox/Org/work.org" "Research TODOs")
-                            "* %^{Title} :@work:research:%^g\n%?\nAdded: %U"
-                            :prepend t :clock-in t :clock-resume t :immediate-finish t)
+     ;; work - tasks -- if it's not one of the specific things below, it's this
+     ("T" "Work - Task" entry
+      (file+headline "~/Dropbox/Org/work.org" "Work TODOs")
+      "* TODO %^{Title} [#%^{Priority|D|C|B|A}] :@work:task:%^g\nSCHEDULED: %^{scheduled for}T\n%?\nAdded: %U"
+      :prepend t :clock-in t :clock-resume t)
+     
+     ;; work - code todo
+     ("C" "Work - Code TODO" entry
+      (file+headline "~/Dropbox/Org/work.org" "Code TODOs")
+      "* TODO %^{Title} :@work:code:%^g\nFile: [[file://%F::%(with-current-buffer (org-capture-get :original-buffer) (number-to-string (line-number-at-pos)))][%(buffer-name (org-capture-get :original-buffer))]]\nAdded: %U\n%?"
+      :prepend t :clock-in t :clock-resume t :immediate-finish t)
+     
+     ;; work - email todo
+     ("E" "Work - Email TODO" entry
+      (file+headline "~/Dropbox/Org/work.org" "Email TODOs")
+      "* TODO %^{Title} :@work:email:%^g\n%?\nEmail: %a\nAdded: %U"
+      :prepend t :clock-in t :clock-resume t :immediate-finish t)
 
-                           ;; ------------------------------------------------------------;;;
-                           
-                           ;; personal - journaling
-                           ("j" "Personal - Journaling" entry (function org-journal-find-location)
-                            "* %(format-time-string org-journal-time-format) %^{Title} :@personal:%^g\n%i\n%?"
-                            :prepend t)
-                           
-                           ;; personal - project ideas / hacking / cyberdeck / radio -- random stuff
-                           ("p" "Personal - Project Stuff" entry
-                            (file+headline "~/Dropbox/Org/hacking.org" "Project Idea")
-                            "* %^{Title} :@personal:%^g\n%?\nClipboard: %c"
-                            :prepend t)
-                           
-                           ;; personal - generic todos/tasks ( calls to make, scheduled stuff, etc )
-                           ("t" "Personal - TODO" entry
-                            (file+headline "~/Dropbox/Org/tasks.org" "TODOs")
-                            "* TODO %^{Title} :@personal:task:%^g\nSCHEDULED: %^{scheduled for}T\n%?\nAdded: %U"
-                            :prepend t)
-                           
-                           ;; personal - code todos
-                           ("c" "Personal - Code TODO" entry
-                            (file+headline "~/Dropbox/Org/code.org" "TODOs")
-                            "* TODO %^{Title} :@personal:code:%^g\n%?\nFile [[file://%F::%(with-current-buffer (org-capture-get :original-buffer) (number-to-string (line-number-at-pos)))][%(buffer-name (org-capture-get :original-buffer))]]"
-                            :prepend t)
+     ;; work - research/learn "task"
+     ("R" "Work - Research" entry
+      (file+headline "~/Dropbox/Org/work.org" "Research TODOs")
+      "* %^{Title} :@work:research:%^g\n%?\nAdded: %U"
+      :prepend t :clock-in t :clock-resume t :immediate-finish t)
 
-                           ;; personal - project/code todos (but not specific to a file)
-                           ("d" "Personal - Project/Code TODOs" entry
-                            (file+headline "~/Dropbox/Org/code.org" "Code")
-                            "* TODO %^{Title} :@personal:code:%^g\nAdded: %U\n%?"
-                            :prepend t)
-                           
-                           ;; personal - recipies
-                           ("r" "Personal - Recipies" entry
-                            (file "~/Dropbox/Org/recipies.org")
-                            "* %^{Title} :@personal:recipie:%^g\nAdded: %U\n%?"
-                            :prepend t)
+     ;; ------------------------------------------------------------;;;
+     
+     ;; personal - journaling
+     ("j" "Personal - Journaling" entry (function org-journal-find-location)
+      "* %(format-time-string org-journal-time-format) %^{Title} :@personal:%^g\n%i\n%?"
+      :prepend t)
+     
+     ;; personal - project ideas / hacking / cyberdeck / radio -- random stuff
+     ("p" "Personal - Project Stuff" entry
+      (file+headline "~/Dropbox/Org/hacking.org" "Project Idea")
+      "* %^{Title} :@personal:%^g\n%?\nClipboard: %c")
+     
+     ;; personal - generic todos/tasks ( calls to make, scheduled stuff, etc )
+     ("t" "Personal - TODO" entry
+      (file+headline "~/Dropbox/Org/personal.org" "TODOs")
+      "* TODO %^{Title} :@personal:task:%^g\nSCHEDULED: %^{scheduled for}T\n%?\nAdded: %U"
+      :prepend t)
+     
+     ;; personal - code todos
+     ("c" "Personal - Code TODO" entry
+      (file+headline "~/Dropbox/Org/code.org" "TODOs")
+      "* TODO %^{Title} :@personal:code:%^g\n%?\nFile [[file://%F::%(with-current-buffer (org-capture-get :original-buffer) (number-to-string (line-number-at-pos)))][%(buffer-name (org-capture-get :original-buffer))]]"
+      :prepend t)
 
-                           ;; ------------------------------------------------------------;;;
+     ;; personal - project/code todos (but not specific to a file)
+     ("d" "Personal - Project/Code TODOs" entry
+      (file+headline "~/Dropbox/Org/code.org" "Code")
+      "* TODO %^{Title} :@personal:code:%^g\nAdded: %U\n%?"
+      :prepend t)
+     
+     ;; personal - recipies
+     ("r" "Personal - Recipies" entry
+      (file+headline "~/Dropbox/Org/recipies.org" "Recipies")
+      "* %^{Title} :@personal:recipie:%^g\nAdded: %U\n%?")
 
-                           ;; ;; dmv - episodes to record
-                           ;; ("e" "DMV - Episode (to record, ideas, etc)")
-                           ;; ;; dmv - folks to reach out to
-                           ;; ("o" "DMV - Outreach")
-                           ;; ;; dmv - scheduling games to play
-                           ;; ("g" "DMV - Scheduling Games")
-                           ))
+     ("m" "Personal - Reminder" entry
+      (file+headline "~/Dropbox/Org/personal.org" "Reminders")
+      "* %^{Title} :@personal:reminder:%^g\nSCHEDULED: %^{reminder time}T\nAdded: %U\n%?")
 
-  
+     ;; ------------------------------------------------------------;;;
+
+     ;; ;; dmv - episodes to record
+     ;; ("e" "DMV - Episode (to record, ideas, etc)")
+     ;; ;; dmv - folks to reach out to
+     ;; ("o" "DMV - Outreach")
+     ;; ;; dmv - scheduling games to play
+     ;; ("g" "DMV - Scheduling Games")
+     ))
+
   (org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0.11.jar")
   (org-ditaa-eps-jar-path nil)
-  (org-plantuml-jar-path "/home/sean/bin/plantuml.jar")
+  (org-plantuml-jar-path "/home/sean/bin/plantuml.jar")  
   
   :config
   (org-clock-persistence-insinuate)
@@ -375,6 +383,11 @@ prompting."
    '((ditaa . t)
      (dot . t)
      (plantuml . t)))
+
+
+
+
+
 
   ;; (defun sh/org-clock-in-if-starting ()
   ;;   "Clock in when the task is marked STARTED."
