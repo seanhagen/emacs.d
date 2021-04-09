@@ -1,3 +1,34 @@
+(defun replace-in-string (what with in)
+  "Replace in string"
+  (replace-regexp-in-string (regexp-quote what) with in nil 'literal))
+
+(defun sh/go-package-name (buffer-name)
+  "Get name of package (folder name) in go file"
+  (file-name-nondirectory (directory-file-name (file-name-directory buffer-name))))
+
+(defun sh/go-test-name (buffer-name)
+  "Get name of first test in go test file based on file name"
+  (let ((package-name (file-name-nondirectory (directory-file-name (file-name-directory buffer-name))))
+        (file-name (replace-in-string "_test.go" "" (file-name-nondirectory buffer-name))))
+    (concat (capitalize package-name) "_" (capitalize file-name))
+    )
+  )
+
+   ;; (file-name-nondirectory (directory-file-name (file-name-directory buffer-file-name))):
+   ;; hextile
+
+   ;; (directory-file-name (file-name-directory buffer-file-name))
+   ;; /home/sean/Code/Go/src/github.com/seanhagen/hextile
+
+   ;; (file-name-directory buffer-file-name):
+   ;; /home/sean/Code/Go/src/github.com/seanhagen/hextile/
+
+   ;; (replace-in-string "_test.go" "" "map_test.go")
+   ;; map
+
+   ;; (file-name-nondirectory buffer-file-name):
+   ;; what_test.go
+
 (defun copy-all ()
   "Copy entire buffer to clipboard"
   (interactive)

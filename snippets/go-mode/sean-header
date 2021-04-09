@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: sean-header
+# key: sean-header
+# --
+/**
+ * File: `(sh-get-file-name)`
+ * Date: `(sh-get-timestamp-ver1)`
+ * Creator: Sean Hagen <sean.hagen@gmail.com>
+ */$0
