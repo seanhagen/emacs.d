@@ -84,13 +84,18 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :init (setq markdown-command "multimarkdown")
+  :config
+  (use-package livedown
+    :custom
+    (livedown-autostart nil)
+    (livedown-open t)
+    (livedown-port 1337)
+    (livedown-browser "brave")))
 
 (use-package poly-markdown
   :config
   (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode)))
-
-
 
 (use-package sql-indent
   :config
@@ -124,6 +129,8 @@
     (flutter-l10n-flycheck-setup)))
 
 (use-package csv-mode)
+
+(use-package lua-mode)
 
 (provide '11-language-config)
 ;;; 11-language-config.el ends here

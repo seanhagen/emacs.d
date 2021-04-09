@@ -2,6 +2,14 @@
 (load "server")
 (unless (server-running-p) (server-start))
 
+(require 'package)
+(setq package-archives
+      '(
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "http://stable.melpa.org/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+
 ;;(use-package tramp)
 (require 'tramp)
 (use-package multi-term)

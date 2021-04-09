@@ -113,6 +113,7 @@
   (company-show-numbers t)
   (company-idle-delay 0.1)
   (company-tooltip-limit 20)
+  (company-dabbrev-downcase nil)
   ;(company-backends (delete 'company-dabbrev company-backends))
   (company-minimum-prefix-length 2)
   (company-echo-delay 0)
@@ -189,7 +190,10 @@
 
   :config
   (use-package lsp-ivy
-    :bind ("C-c o" . lsp-ivy-workspace-symbol))
+    :bind ("C-c i" . lsp-ivy-workspace-symbol))
+  (use-package lsp-metals)
+  (use-package lsp-dart)
+  (use-package lsp-treemacs)
   ;; (add-hook 'before-save-hook 'lsp-format-buffer)
   ;; (add-hook 'before-save-hook 'lsp-organize-imports)
   )

@@ -37,7 +37,7 @@
  '(flycheck-gometalinter-executable "/home/sean/Code/Go/bin/gometalinter")
  '(flycheck-gometalinter-fast t)
  '(flycheck-gometalinter-vendor t)
- '(flycheck-indication-mode 'left-fringe)
+ '(flycheck-indication-mode 'left-fringe nil nil "Customized with use-package flycheck")
  '(flycheck-ruby-rubocop-executable "~/.rbenv/shims/rubocop")
  '(gh-use-local-git-config t)
  '(gnus-fetch-old-headers nil)

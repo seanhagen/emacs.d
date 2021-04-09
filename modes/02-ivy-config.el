@@ -27,8 +27,8 @@
 
 (use-package swiper
   :after ivy
-  :bind (("C-s" . swiper)
-         ("C-r" . swiper)))
+  :bind (("C-s" . swiper-isearch)
+         ("C-r" . swiper-isearch)))
 
 ;; (use-package ivy-hydra)
 (use-package ivy-yasnippet)
