@@ -159,6 +159,7 @@ of (command . word) to be used by `flyspell-do-correct'."
   :custom
   (dashboard-banner-logo-title "EMACS")
   (dashboard-startup-banner "~/.emacs.d/glider.png")
+  (dashboard-set-init-info t)
   (dashboard-init-info "CODE CODE CODE")
   (dashboard-center-content t)
   (dashboard-footer-messages (list (shell-command-to-string "fortune")))
@@ -166,9 +167,16 @@ of (command . word) to be used by `flyspell-do-correct'."
   (dashboard-set-file-icons t)
   (dashboard-items '((recents . 10)
                      (projects . 10)
-                     (agenda . 10)))
+                     (agenda . 10)
+                     (bookmarks . 10)
+                     (registers . 5)))
+  (dashboard-set-navigator t)
   :config
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                  (bookmarks . "book"))))
+
 ;; more config stuff here: https://github.com/emacs-dashboard/emacs-dashboard
 
 (use-package eldoc
@@ -248,6 +256,35 @@ of (command . word) to be used by `flyspell-do-correct'."
   (setf epa-pinentry-mode 'loopback))
 
 (use-package password-store)
+
+(use-package treemacs
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+
+  :config
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  (treemacs-fringe-indicator-mode 'always)
+
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
+
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
+(use-package treemacs-icons-dired
+  :after (treemacs dired)
+  :config (treemacs-icons-dired-mode))
+
+(use-package treemacs-magit
+  :after (treemacs magit))
 
 (provide 'misc-config)
 ;;; 01-misc-config.el ends here

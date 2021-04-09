@@ -94,8 +94,11 @@
   :init (auto-insert-mode 1)
   :config
   (define-auto-insert ".*emacs\\.d.*el?$" ["default-lisp.el" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*Z2hMedia.*\\.go?$" ["biba-default.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*seanhagen.*\\.go?$" ["sean-default.go" sh/autoinsert-yas-expand])
   (define-auto-insert ".*main\\.go?$" ["default-main.go" sh/autoinsert-yas-expand])
   (define-auto-insert "\\.go?$" ["default-package.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*_test\\.go?$" ["default-test.go" sh/autoinsert-yas-expand])
   (define-auto-insert "*Code/HTML/*\\.html?$" ["default-html.html" sh/autoinsert-yas-expand])
   (define-auto-insert ".*Code/Unity/.*\\.cs?$" ["default-unity.cs" sh/autoinsert-yas-expand]))
 
