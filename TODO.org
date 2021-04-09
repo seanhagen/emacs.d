@@ -1,10 +1,13 @@
+#+FILETAGS: @personal
+#+CATEGORY: TODO
 * Things To Do With Emacs Config
-** TODO packages to look into [0/4]
+** TODO packages to look into [0/5]
 SCHEDULED: <2021-04-03 Sat>
  - [ ] https://github.com/cyrus-and/zoom
  - [ ] https://github.com/daichirata/emacs-rotate
  - [ ] https://www.wisdomandwonder.com/emacs/12181/go-to-the-logical-begin-and-end-of-a-buffers-content
  - [ ] https://www.manueluberti.eu//emacs/2019/03/16/switch-buffers/
+ - [ ] flylisp
 ** TODO look into these packages [2/30]
 SCHEDULED: <2021-04-03 Sat>
 - [ ]  nlinum-relative      20160526.8
@@ -42,8 +45,8 @@ SCHEDULED: <2021-04-03 Sat>
 - [ ]  emms                 20170501.1102
 - [ ]  elfeed               20170429.1038
 - [ ]  cider                20170430.816
-** TODO configure these emacs packages
-SCHEDULED: <2021-03-04 Thu>
+** TODO look into these emacs packages
+SCHEDULED: <2021-04-17 Sat>
 - [ ] org-board      20200530.830
 - [ ] org-alert      20180524.133
 - [ ] all-the-icons-ibuffer
@@ -104,4 +107,6 @@ see: http://doc.norang.ca/org-mode.html#ToDoStateTriggers
 File [[file:///home/sean/.emacs.d/modes/04-org-config.el::112][04-org-config.el]]
 ** TODO more org mode customizing to look into
 SCHEDULED: <2021-04-03 Sat>
-- prettier bullets and keywords: https://dustinlacewell.github.io/emacs.d/#org21fe61b
+  - [ ] prettier bullets and keywords: https://dustinlacewell.github.io/emacs.d/#org21fe61b
+  - [ ] https://tecosaur.github.io/emacs-config/config.html#extra-functionality
+  - [ ] https://www.reddit.com/r/emacs/comments/6r32q4/orgmode_whats_your_html_export_look_like/
