@@ -69,8 +69,6 @@
  '(notmuch-hello-thousands-separator ",")
  '(notmuch-show-text/html-blocked-images nil)
  '(omnisharp-server-executable-path "/home/sean/.omnisharp/run")
- '(org-agenda-files
-   '("/home/sean/Dropbox/Org/code.org" "/home/sean/Dropbox/Org/hacking.org" "/home/sean/Dropbox/Org/journal.org" "/home/sean/Dropbox/Org/tasks.org" "/home/sean/Dropbox/Org/TODO.org" "/home/sean/Dropbox/Org/work.org" "/home/sean/Dropbox/Org/work-taskdiary.org" "/home/sean/Dropbox/Org/backend-team.org" "/home/sean/Dropbox/Org/personal.org" "~/Code/Go/playgrounds_service/TODO.org" "~/.emacs.d/TODO.org" "~/Dropbox/Org/TODO.org" "~/Code/Go/backend-go-library/TODO.org" "~/Code/HTML/seanhagen.ca/TODO.org" "~/Code/Go/protobufs/TODO.org" "/shared/Code/Unity/2D/Endless Stream/TODO.org" "~/Code/Go/pdf_generator/TODO.org" "~/Code/Go/localization_service/TODO.org" "~/Code/Go/golfs/TODO.org" "~/Code/Go/games_service/TODO.org" "~/Code/Go/sendbot/TODO.org" "/shared/Code/Unity/2D/Glitch Garden/TODO.org") nil nil "Customized with use-package org-projectile")
  '(org-journal-dir "~/Dropbox/Org/journal")
  '(popwin-mode t)
  '(popwin:special-display-config
