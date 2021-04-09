@@ -110,3 +110,5 @@ SCHEDULED: <2021-04-03 Sat>
   - [ ] prettier bullets and keywords: https://dustinlacewell.github.io/emacs.d/#org21fe61b
   - [ ] https://tecosaur.github.io/emacs-config/config.html#extra-functionality
   - [ ] https://www.reddit.com/r/emacs/comments/6r32q4/orgmode_whats_your_html_export_look_like/
+  - [ ] https://writequit.org/denver-emacs/presentations/2017-04-11-time-clocking-with-org.html#clock-reports
+  - [ ] https://christine.website/blog/org-mode-flow-2020-09-08

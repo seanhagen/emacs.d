@@ -31,6 +31,7 @@
   (defhydra hydra/programming-stuff (:color blue)
     "Generic programming stuff"
     ("i" lsp-ivy-workspace-symbol "Ivy Workspace Symbol")
+    ("r" lsp-rename "Rename symbol")
     ("q" hydra-pop "Quit"))
   
   (defhydra hydra/golang-tools (:color blue)
