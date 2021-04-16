@@ -332,7 +332,7 @@ prompting."
      
      ;; personal - project ideas / hacking / cyberdeck / radio -- random stuff
      ("p" "Personal - Project Stuff" entry
-      (file+headline "~/Dropbox/Org/hacking.org" "Project Idea")
+      (file+headline "~/Dropbox/Org/hacking.org" "Project Ideas")
       "* %^{Title} :@personal:%^g\n%?\nClipboard: %c")
      
      ;; personal - generic todos/tasks ( calls to make, scheduled stuff, etc )
