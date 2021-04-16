@@ -48,7 +48,8 @@ prompting."
      "/home/sean/Dropbox/Org/work.org"
      "/home/sean/Dropbox/Org/work-taskdiary.org"
      "/home/sean/Dropbox/Org/backend-team.org"
-     "/home/sean/Dropbox/Org/personal.org"))
+     "/home/sean/Dropbox/Org/personal.org"
+     "/home/sean/Dropbox/Org/archive.org"))
   (org-agenda-span 5)
   (org-agenda-log-mode 1)
   (org-agenda-start-on-weekday 1)
