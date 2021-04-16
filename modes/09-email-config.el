@@ -29,8 +29,9 @@
           (:name "newsletters" :query "tag:newsletter AND tag:unread AND NOT tag:gonuts")
           (:name "social" :query "tag:social AND tag:unread")
           (:name "github" :query "tag:github AND tag:unread")
+          (:name "kickstarter" :query "tag:kickstarter AND tag:unread")
           (:name "youtube" :query "tag:youtube AND tag:unread")
-          (:name "unread" :query "tag:unread AND NOT tag:github AND NOT tag:social AND NOT tag:work AND NOT tag:seanhagenca AND NOT tag:newsletter AND NOT tag:youtube AND NOT tag:go AND NOT tag:gonuts")))
+          (:name "unread" :query "tag:unread AND NOT tag:github AND NOT tag:kickstarter AND NOT tag:social AND NOT tag:work AND NOT tag:seanhagenca AND NOT tag:newsletter AND NOT tag:youtube AND NOT tag:go AND NOT tag:gonuts")))
   :config
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
