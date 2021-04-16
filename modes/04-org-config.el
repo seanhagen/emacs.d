@@ -343,13 +343,13 @@ prompting."
      
      ;; personal - code todos
      ("c" "Personal - Code TODO" entry
-      (file+headline "~/Dropbox/Org/code.org" "TODOs")
+      (file+headline "~/Dropbox/Org/code.org" "Code")
       "* TODO %^{Title} :@personal:code:%^g\n%?\nFile [[file://%F::%(with-current-buffer (org-capture-get :original-buffer) (number-to-string (line-number-at-pos)))][%(buffer-name (org-capture-get :original-buffer))]]"
       :prepend t)
 
      ;; personal - project/code todos (but not specific to a file)
-     ("d" "Personal - Project/Code TODOs" entry
-      (file+headline "~/Dropbox/Org/code.org" "Code")
+     ("d" "Personal - Code Project TODOs" entry
+      (file+headline "~/Dropbox/Org/code.org" "TODOs")
       "* TODO %^{Title} :@personal:code:%^g\nAdded: %U\n%?"
       :prepend t)
      
