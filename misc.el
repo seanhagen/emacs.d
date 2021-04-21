@@ -92,8 +92,14 @@
                 "/home/sean/.local/bin"
                 "/home/sean/.cargo/bin"
                 "/home/sean/bin/google-cloud-sdk/bin"
+                "/home/sean/bin"
+                "/home/sean/bin/go"
+                "/home/sean/go/bin"
                 (getenv "PATH")))
 
+(add-to-list 'exec-path "/home/sean/go/bin")
+(add-to-list 'exec-path "/home/sean/bin")
+(add-to-list 'exec-path "/home/sean/bin/go/bin")
 (add-to-list 'exec-path "/home/sean/.rbenv/shims")
 (add-to-list 'exec-path "/usr/local/java/bin")
 (add-to-list 'exec-path "/usr/local/node/bin")
