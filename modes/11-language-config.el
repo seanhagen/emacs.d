@@ -35,6 +35,9 @@
     (add-hook 'before-save-hook #'lsp-organize-imports t t))
   (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
   (use-package gotest)
+  (use-package go-gen-test
+    :bind (:map go-mode-map
+                ("C-c C-g" . go-gen-test-dwim)))
   (use-package go-add-tags
                :bind (:map go-mode-map ("C-c '" . go-add-tags))
                :commands go-add-tags)

@@ -26,8 +26,14 @@
     ("o" (progn (hydra/org-stuff/body) (hydra-push '(hydra/base-menu/body))) "Org")
     ("m" (progn (hydra/markdown-stuff/body) (hydra-push '(hydra/base-menu/body))) "Markdown")
     ("t" (progn (hydra/text-stuff/body) (hydra-push '(hydra/base-menu/body))) "Text")
+    ("r" (progn (hydra/treemacs-stuff/body) (hydra-push '(hydra/base-menu/body))) "Treemacs")
     ("c" (progn (hydra/counsel-stuff/body) (hydra-push '(hydra/base-menu/body))) "Counsel"))
 
+  (defhydra hydra/treemacs-stuff (:color blue)
+    "Treemacs stuff!"
+    ("t" treemacs "Treemacs")
+    ("q" hydra-pop "Quit"))
+  
   (defhydra hydra/programming-stuff (:color blue)
     "Generic programming stuff"
     ("i" lsp-ivy-workspace-symbol "Ivy Workspace Symbol")
@@ -48,13 +54,13 @@
   
   (defhydra hydra/golang-tests (:color blue)
     "Running Go tests with ease!"
-    ("c" go-test-current-test)
-    ("f" go-test-current-file)
-    ("p" go-test-current-project)
-    ("o" go-test-current-coverage)
-    ("b" go-test-current-benchmark)
-    ("v" go-test-current-file-benchmarks)
-    ("x" go-test-current-project-benchmarks)
+    ("c" go-test-current-test "Current Test")
+    ("f" go-test-current-file "Current File")
+    ("p" go-test-current-project "Current Project")
+    ("o" go-test-current-coverage "Current Coverage")
+    ("b" go-test-current-benchmark "Current Benchmark")
+    ("v" go-test-current-file-benchmarks "File Benchmarks")
+    ("x" go-test-current-project-benchmarks "Project Benchmarks")
     ("q" hydra-pop "quit"))
   
   (defhydra hydra/daily-common (:color blue)

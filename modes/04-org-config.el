@@ -35,7 +35,7 @@ prompting."
     (interactive)
     (save-excursion
       (beginning-of-line 0)
-      (org-remove-empty-drawer-at "LOGBOOK" (point))))
+      (org-remove-empty-drawer-at (point))))
   (add-hook 'org-clock-out-hook 'sh/remove-empty-drawer-on-clock-out 'append)
   
   :custom
@@ -48,7 +48,8 @@ prompting."
      "/home/sean/Dropbox/Org/work.org"
      "/home/sean/Dropbox/Org/work-taskdiary.org"
      "/home/sean/Dropbox/Org/backend-team.org"
-     "/home/sean/Dropbox/Org/personal.org"))
+     "/home/sean/Dropbox/Org/personal.org"
+     "/home/sean/Dropbox/Org/archive.org"))
   (org-agenda-span 5)
   (org-agenda-log-mode 1)
   (org-agenda-start-on-weekday 1)
@@ -331,7 +332,7 @@ prompting."
      
      ;; personal - project ideas / hacking / cyberdeck / radio -- random stuff
      ("p" "Personal - Project Stuff" entry
-      (file+headline "~/Dropbox/Org/hacking.org" "Project Idea")
+      (file+headline "~/Dropbox/Org/hacking.org" "Project Ideas")
       "* %^{Title} :@personal:%^g\n%?\nClipboard: %c")
      
      ;; personal - generic todos/tasks ( calls to make, scheduled stuff, etc )
@@ -342,13 +343,13 @@ prompting."
      
      ;; personal - code todos
      ("c" "Personal - Code TODO" entry
-      (file+headline "~/Dropbox/Org/code.org" "TODOs")
+      (file+headline "~/Dropbox/Org/code.org" "Code")
       "* TODO %^{Title} :@personal:code:%^g\n%?\nFile [[file://%F::%(with-current-buffer (org-capture-get :original-buffer) (number-to-string (line-number-at-pos)))][%(buffer-name (org-capture-get :original-buffer))]]"
       :prepend t)
 
      ;; personal - project/code todos (but not specific to a file)
-     ("d" "Personal - Project/Code TODOs" entry
-      (file+headline "~/Dropbox/Org/code.org" "Code")
+     ("d" "Personal - Code Project TODOs" entry
+      (file+headline "~/Dropbox/Org/code.org" "TODOs")
       "* TODO %^{Title} :@personal:code:%^g\nAdded: %U\n%?"
       :prepend t)
      
