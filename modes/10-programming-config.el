@@ -188,7 +188,7 @@
   (lsp-signature-render-documentation t)
 
   :init
-  (unless (executable-find "/home/sean/Code/Go/bin/gopls")
+  (unless (executable-find "gopls")
     (user-error "Go LSP server is not on PATH\n"))
 
   :config

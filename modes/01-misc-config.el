@@ -168,8 +168,7 @@ of (command . word) to be used by `flyspell-do-correct'."
   (dashboard-items '((recents . 10)
                      (projects . 10)
                      (agenda . 10)
-                     (bookmarks . 10)
-                     (registers . 5)))
+                     (bookmarks . 10)))
   (dashboard-set-navigator t)
   :config
   (dashboard-setup-startup-hook)
