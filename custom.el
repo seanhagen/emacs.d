@@ -68,6 +68,8 @@
  '(notmuch-hello-thousands-separator ",")
  '(notmuch-show-text/html-blocked-images nil)
  '(omnisharp-server-executable-path "/home/sean/.omnisharp/run")
+ '(org-clocktable-defaults
+   '(:maxlevel 5 :lang "en" :scope agenda-with-archives :block nil :wstart 1 :mstart 1 :tstart nil :tend nil :step nil :stepskip0 nil :fileskip0 t :tags nil :match nil :emphasize nil :link nil :narrow 40! :indent t :hidefiles nil :formula nil :timestamp nil :level nil :tcolumns nil :formatter nil))
  '(org-journal-dir "~/Dropbox/Org/journal")
  '(popwin-mode t)
  '(popwin:special-display-config
