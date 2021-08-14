@@ -1,5 +1,7 @@
 ;;; init.el --- -*- lexical-binding: t -*
 
+(defvar user-work-address "sean@playbiba.com")
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))

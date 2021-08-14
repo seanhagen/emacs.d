@@ -1,3 +1,6 @@
 (
+ (:id "sha1:1e8965a70ed8f299534bcbcc1bd160a23f2938e9" :fingerprints ("sha1:52:57:65:ec:08:34:d0:8b:63:ce:bd:11:54:a9:6f:92:f1:15:44:16") :host "www.google-analytics.com:443" :conditions (:no-host-match :verify-cert))
+ (:id "sha1:2fd8526252fb4c025cee9da627981578f33828e9" :fingerprints ("sha1:74:2a:54:9f:73:9d:6e:13:6d:8c:f2:bf:9c:e3:2f:84:dd:7a:f4:85") :host "hdcontent.homedepot.com:443" :conditions (:renegotiation-info-ext))
+ (:id "sha1:104b61b9c9d20d6e2159fa418318c80844276b99" :fingerprints ("sha1:bf:0b:40:01:e6:da:81:a4:1c:09:b2:b7:2d:8f:3e:a3:62:f4:a7:ef") :host "secure3.convio.net:443" :conditions (:renegotiation-info-ext))
  (:id "sha1:85457c729378cc93c732b6a3941c8e4f9c2e60f3" :fingerprints ("sha1:ab:a6:d7:6a:b3:d3:63:fa:19:0d:65:41:60:23:6e:ef:d3:2a:46:dc") :host "marmalade-repo.org:443" :conditions (:expired :unknown-ca :invalid :verify-cert))
 )

@@ -95,6 +95,7 @@
                 "/home/sean/bin"
                 "/home/sean/bin/go"
                 "/home/sean/go/bin"
+                "/home/sean/.local/share/coursier/bin"
                 (getenv "PATH")))
 
 (add-to-list 'exec-path "/home/sean/go/bin")
@@ -106,6 +107,7 @@
 (add-to-list 'exec-path "/usr/local/go/bin")
 (add-to-list 'exec-path "/home/sean/Code/Go/bin")
 (add-to-list 'exec-path "/home/sean/.local/bin")
+(add-to-list 'exec-path "/home/sean/.local/share/coursier/bin")
 (add-to-list 'exec-path "/home/sean/.cargo/bin")
 (add-to-list 'exec-path "~/.local/share/nvm/v15.6.0/bin")
 (add-to-list 'exec-path "/home/sean/bin/google-cloud-sdk/bin")
