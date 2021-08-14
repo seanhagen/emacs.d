@@ -169,7 +169,7 @@
 (use-package lsp-mode
   :diminish
   :commands (lsp lsp-deferred)
-  :hook ((go-mode js-mode js2-mode typescript-mode c-mode c++-mode python-mode csharp-mode scala-mode) . lsp-deferred)
+  :hook ((go-mode js-mode js2-mode typescript-mode c-mode c++-mode python-mode csharp-mode scala-mode vue-mode js-mode js2-mode sass-mode) . lsp-deferred)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point)
               ("C-c C-f" . lsp-format-buffer)
