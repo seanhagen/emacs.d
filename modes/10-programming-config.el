@@ -18,7 +18,7 @@
   :bind (("C-c p" . projectile-command-map))
   :custom
   (projectile-completion-system 'ivy)
-  (projectile-indexing-method 'alien)
+  (projectile-indexing-method 'hybrid)
   (projectile-enable-caching t)
   :init
   (add-hook 'js2-mode-hook 'projectile-mode)
