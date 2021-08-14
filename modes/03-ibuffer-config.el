@@ -46,7 +46,7 @@
       ("Prj:redirectr" (projectile-root "redirectr" . "/home/sean/Code/Go/src/github.com/Z2hMedia/redirectr/"))
       ("Prj:honeybadger-go" (projectile-root "honeybadger-go" . "/home/sean/Code/Go/src/github.com/seanhagen/honeybadger-go/"))
       ("Prj:reports_service" (projectile-root "reports_service" . "/home/sean/Code/Go/src/github.com/Z2hMedia/reports_service/"))
-      ("Projectile:dataflow_jobs" (projectile-root "dataflow_jobs" . "/home/sean/Code/Scala/dataflow_jobs/"))
+      ("Prj:dataflow_jobs" (projectile-root "events-and-sessionizing" . "/home/sean/Code/Scala/dataflow_jobs/"))
       ("lsp" (or
               (name . "\*lsp-log\*")
               (name . "\*gopls")))
