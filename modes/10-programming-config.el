@@ -358,16 +358,6 @@
 ;; - https://github.com/ema2159/centaur-tabs
 ;; - https://github.com/tarsius/hl-todo
 
-(use-package platformio-mode :ensure)
-(use-package arduino-mode
-  :init
-  (require 'flycheck-arduino)
-  (add-hook 'arduino-mode-hook #'flycheck-arduino-setup)
-  (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
-  (add-hook 'c++-mode-hook (lambda ()
-                           (lsp)
-                           (platformio-conditionally-enable))))
-
 (use-package ccls :ensure
 	:config
 	'(ccls-initialization-options (quote (compilationDatabaseDirectory :build)))

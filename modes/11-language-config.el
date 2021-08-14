@@ -164,5 +164,16 @@
 
 (use-package sass-mode)
 
+(use-package platformio-mode :ensure)
+(use-package arduino-mode
+  :init
+  (require 'flycheck-arduino)
+  (add-hook 'arduino-mode-hook #'flycheck-arduino-setup)
+  (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
+  (add-hook 'c++-mode-hook (lambda ()
+                           (lsp)
+                           (platformio-conditionally-enable))))
+
+
 (provide '11-language-config)
 ;;; 11-language-config.el ends here
