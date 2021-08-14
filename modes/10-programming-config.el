@@ -92,6 +92,9 @@
   (yas-global-mode t)
   (yas-reload-all)
   :init
+  (setq yas-triggers-in-field t)
+  (defun sh/go-root-package())
+  
   (defun sh/autoinsert-yas-expand()
     "Replace text in yasnippet template."
     (yas-expand-snippet (buffer-string) (point-min) (point-max))))
@@ -105,11 +108,13 @@
   :init (auto-insert-mode 1)
   :config
   (define-auto-insert ".*emacs\\.d.*el?$" ["default-lisp.el" sh/autoinsert-yas-expand])
-  (define-auto-insert ".*Z2hMedia.*\\.go?$" ["biba-default.go" sh/autoinsert-yas-expand])
-  (define-auto-insert ".*seanhagen.*\\.go?$" ["sean-default.go" sh/autoinsert-yas-expand])
-  (define-auto-insert ".*main\\.go?$" ["default-main.go" sh/autoinsert-yas-expand])
-  (define-auto-insert "\\.go?$" ["default-package.go" sh/autoinsert-yas-expand])
-  (define-auto-insert ".*_test\\.go?$" ["default-test.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*Code/Go/src/github.com/seanhagen.*\\.go?$" ["sean-default.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*Code/Go/src/github.com/seanhagen.*_test\\.go?$" ["sean-test.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*Code/Go/src/github.com/seanhagen.*main\\.go?$" ["sean-main.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*Code/Go/src/github.com/Z2hMedia.*\\.go?$" ["biba-default.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*Code/Go/src/github.com/Z2hMedia.*_test\\.go?$" ["biba-test.go" sh/autoinsert-yas-expand])
+  (define-auto-insert ".*Code/Go/src/github.com/Z2hMedia.*main\\.go?$" ["biba-main.go" sh/autoinsert-yas-expand])
+  ;; (define-auto-insert ".*_test\\.go?$" ["default-test.go" sh/autoinsert-yas-expand])
   (define-auto-insert "*Code/HTML/*\\.html?$" ["default-html.html" sh/autoinsert-yas-expand])
   (define-auto-insert ".*Code/Unity/.*\\.cs?$" ["default-unity.cs" sh/autoinsert-yas-expand]))
 
@@ -164,7 +169,7 @@
 (use-package lsp-mode
   :diminish
   :commands (lsp lsp-deferred)
-  :hook ((go-mode js-mode js2-mode typescript-mode c-mode c++-mode python-mode csharp-mode) . lsp-deferred)
+  :hook ((go-mode js-mode js2-mode typescript-mode c-mode c++-mode python-mode csharp-mode scala-mode) . lsp-deferred)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point)
               ("C-c C-f" . lsp-format-buffer)
@@ -205,7 +210,14 @@
   :config
   (use-package lsp-ivy
     :bind ("C-c i" . lsp-ivy-workspace-symbol))
-  (use-package lsp-metals)
+  (use-package lsp-metals
+    :custom
+    ;; Metals claims to support range formatting by default but it supports range
+    ;; formatting of multiline strings only. You might want to disable it so that
+    ;; emacs can use indentation provided by scala-mode.
+    (lsp-metals-server-args '("-J-Dmetals.allow-multiline-string-formatting=off"))
+    (lsp-metals-server-command "/home/sean/.local/share/coursier/bin/metals")
+    :hook (scala-mode . lsp))
   (use-package lsp-dart)
   (use-package lsp-treemacs)
   ;; (add-hook 'before-save-hook 'lsp-format-buffer)
@@ -216,6 +228,7 @@
   :requires (lsp-mode)
   :after (lsp-mode)
   :commands (lsp-ui-doc-hide lsp-ui-mode)
+  :hook (lsp-mode . lsp-lens-mode)
   :custom
   (lsp-ui-include-signature t)
   (lsp-ui-use-childframe t)
