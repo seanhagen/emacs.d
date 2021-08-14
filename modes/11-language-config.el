@@ -3,8 +3,6 @@
 ;;;   This is where all of the language-specific stuff lives
 ;;; Code:
 
-
-
 (use-package go-mode
   :mode "\\.go\\'"
   ;; :hook (before-save . gofmt-before-save)
@@ -76,6 +74,18 @@
   :interpreter
   ("scala" . scala-mode))
 
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map)
+   ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
+   (setq sbt:program-options '("-Dsbt.supershell=false")))
+
 (use-package csharp-mode
   :hook ((before-save . lsp-format-buffer)
          (csharp-mode . yas-minor-mode)
@@ -134,6 +144,25 @@
 (use-package csv-mode)
 
 (use-package lua-mode)
+
+(use-package vue-mode
+  :mode "\\.vue\\'"
+  :config
+  (add-hook 'vue-mode-hook #'lsp))
+
+(use-package mmm-mode
+  :custom-face
+  (mmm-default-submode-face ((t nil))))
+
+(use-package typescript-mode)
+
+(use-package prettier-js
+  :config
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'web-mode-hook 'prettier-js-mode)
+  (add-hook 'typescript-mode 'prettier-js-mode))
+
+(use-package sass-mode)
 
 (provide '11-language-config)
 ;;; 11-language-config.el ends here
