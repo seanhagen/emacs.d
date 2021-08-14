@@ -42,6 +42,8 @@ Single Capitals as you type."
 (use-package wsd-mode
   :commands (wsd-mode))
 
+(use-package lorem-ipsum)
+
 
 (provide '06-text-config)
 ;;; 06-text-config.el ends here
