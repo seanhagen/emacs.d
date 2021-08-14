@@ -358,6 +358,12 @@ prompting."
       (file+headline "~/Dropbox/Org/code.org" "TODOs")
       "* TODO %^{Title} :@personal:code:%^g\nAdded: %U\n%?"
       :prepend t)
+
+     ;; personal - meetings/phone calls
+     ("o" "Personal - Meetings & Phone Calls" entry
+      (file+headline "~/Dropbox/Org/personal.org" "Meetings")
+      "* %^{Title} :@personal:meeting:%^g\nAdded: %U\n%?"
+      :prepend t)     
      
      ;; personal - recipies
      ("r" "Personal - Recipies" entry
