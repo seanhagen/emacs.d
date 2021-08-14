@@ -7,7 +7,7 @@
   :bind (("C-c p" . projectile-command-map))
   :custom
   (projectile-completion-system 'ivy)
-  (projectile-indexing-method 'alien)
+  (projectile-indexing-method 'hybrid)
   (projectile-enable-caching t)
   :init
   (add-hook 'js2-mode-hook 'projectile-mode)
@@ -290,6 +290,7 @@
     :defines flycheck-pos-tip-timeout
     :hook (flycheck-mode . flycheck-pos-tip-mode)
     :custom (flycheck-pos-tip-timeout 30))
+
   ;;(global-flycheck-mode)
 
   (when (fboundp 'define-fringe-bitmap)
@@ -333,5 +334,22 @@
 ;; - https://github.com/ema2159/centaur-tabs
 ;; - https://github.com/tarsius/hl-todo
 
-(provide '09-programming-config)
+(use-package platformio-mode :ensure)
+(use-package arduino-mode
+  :init
+  (require 'flycheck-arduino)
+  (add-hook 'arduino-mode-hook #'flycheck-arduino-setup)
+  (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
+  (add-hook 'c++-mode-hook (lambda ()
+                           (lsp)
+                           (platformio-conditionally-enable))))
+
+(use-package ccls :ensure
+	:config
+	'(ccls-initialization-options (quote (compilationDatabaseDirectory :build)))
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp))))
+
+
+(provide '10-programming-config)
 ;;; 09-programming-config.el ends here
