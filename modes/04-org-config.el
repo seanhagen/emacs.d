@@ -368,6 +368,12 @@ prompting."
       (file+headline "~/Dropbox/Org/personal.org" "Reminders")
       "* %^{Title} :@personal:reminder:%^g\nSCHEDULED: %^{reminder time}T\nAdded: %U\n%?")
 
+     ("h" "Personal - Meeting or Phone Call" entry
+      (file+headline "~/Dropbox/Org/personal.org" "Meetings")
+      "* %^{Title} :@personal:meeting:%^g\nAdded: %U\n%?"
+      :prepend t :clock-in t :clock-resume t)
+
+
      ;; ------------------------------------------------------------;;;
 
      ;; ;; dmv - episodes to record
