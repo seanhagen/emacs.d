@@ -5,6 +5,9 @@
   :config
   (counsel-mode t))
 
+(use-package counsel-tramp
+  :after counsel )
+
 (use-package ivy
   :bind (:map ivy-minibuffer-map
               ("<return>" . ivy-alt-done))
@@ -12,7 +15,7 @@
   (ivy-use-virtual-buffers t)
   (ivy-height 15)
   (ivy-fixed-height-minibuffer t)
-
+  (ivy-use-selectable-prompt t)
   (ivy-count-format "")
   ;;(ivy-count-format "(%d/%d) ")
   (ivy-initial-inputs-alist nil)
