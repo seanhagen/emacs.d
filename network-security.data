@@ -1,3 +1,4 @@
 (
+ (:id "sha1:49d5a92a18e28a784707d09ad2ef08507dffa4b7" :fingerprints ("sha1:b6:c9:36:ac:cf:39:ed:01:90:62:5c:ef:4b:44:d6:74:c1:40:0f:54") :host "img.itch.zone:443" :conditions (:unknown-ca :invalid :verify-cert))
  (:id "sha1:85457c729378cc93c732b6a3941c8e4f9c2e60f3" :fingerprints ("sha1:ab:a6:d7:6a:b3:d3:63:fa:19:0d:65:41:60:23:6e:ef:d3:2a:46:dc") :host "marmalade-repo.org:443" :conditions (:expired :unknown-ca :invalid :verify-cert))
 )
