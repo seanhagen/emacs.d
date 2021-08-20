@@ -165,8 +165,16 @@
 (use-package sass-mode)
 
 (use-package platformio-mode :ensure)
+
 (use-package arduino-mode
   :init
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection (lambda () (cons ccls-executable ccls-args)))
+    :language-id 'arduino
+    :major-modes '(arduino-mode)
+    :priority -1
+    :server-id 'lsp-arduino-mode))  
   (require 'flycheck-arduino)
   (add-hook 'arduino-mode-hook #'flycheck-arduino-setup)
   (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
@@ -174,6 +182,9 @@
                            (lsp)
                            (platformio-conditionally-enable))))
 
+
+(use-package cc-mode
+  :bind (("M-RET" . comment-indent-new-line)))
 
 (provide '11-language-config)
 ;;; 11-language-config.el ends here
